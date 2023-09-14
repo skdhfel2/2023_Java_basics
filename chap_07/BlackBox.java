@@ -101,7 +101,7 @@ public class BlackBox {
     }
 
     int getPrice() {
-        return price;
+        return price;// 이 코드에서는 매개변수가 설덩되어 있지 읺기 때문에 price값은 자동적으로 인스턴스 변수값이 된다.
     }
 
     void setPrice(int price) {
