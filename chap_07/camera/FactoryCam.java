@@ -4,8 +4,10 @@ package chap_07.camera;
 public class FactoryCam extends Camera { // 자식 클래스
     public FactoryCam() {
         // this.name = "공장 카메라";
-        super("공장 카메라");
+        super("공장 카메라"); // 부모 클래스에서  String을 인수로 받는 생성자 호츌
     }
+    // super.(); : 부모 클래스의 변수 or 메소드에 접근
+    // super(); : 부모 클래스의 생성자에 접근
 
     public void recordVideo() {
         super.recordVideo();
