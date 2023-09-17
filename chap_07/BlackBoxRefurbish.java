@@ -1,9 +1,9 @@
-package chap_07;
+package chap_07; // 코드 -> 생성 -> Getter & Setter로 변경 가능
 
 public class BlackBoxRefurbish {
     public String modelName; // 모델명
     String resolution; // 해상도
-    private int price; // 가격
+    private int price; // 가격, private을 사용해서 현재 클래스(BlackBoxRefurbish)안에서만 price값 수정이 가능하다.
     protected String color; // 색상
 
     public String getModelName() {
