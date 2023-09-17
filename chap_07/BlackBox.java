@@ -72,8 +72,8 @@ public class BlackBox {
         System.out.println("서비스 센터(1588-oooo) 로 연결합니다.");
     }
     // 일반적인 메소드 : 객체 필요
-    // class 메소드 : 객체 필요 x
-    // static으로 선언한 class메소드만 다른 static 메소드에서 사용 가능
+    // class 메소드(Static Method) : 객체 필요 x
+    // Static으로 선언한 Class 메소드만 다른 static 메소드에서 사용 가능
 
     void appendModelName(String modelName) {
         this.modelName += modelName; // this. 사용 -> : class의 인스턴스 변수로 인식, 이름 같은 변수 사용시 겹치는 오류를 방지 하기 위해서 사용
@@ -81,16 +81,22 @@ public class BlackBox {
     // parameter(매개변수) : 함수 & 메서드에 전달되는 값을 받아들이는 변수
 
     // Getter & Setter
+    // 멤버변수 : 객체에서 선언된 변수
+    // Getter : 객체의 멤버변수 값을 반환하기 위해 사용
+    // Setter : 객체의 멤버변수를 변경할때 사용
+    // Setter 에서 변경 후 -> Getter 에서 반환해서 전달한다.
+    // Getter & Setter 사용 이유 : 1.클래스 안에있는 객체의 멤버변수를 안전하게 변경하기 위해서.
+    // 2. 값을 잘못 설정했을때 발생하는 오류를 방지.
+    // 3. 값을 가져오는 과정해서 그 값이 없거나 이상할때 대안으로 줄수있는 값을 설정할수 있다.
     String getModelName() {
         return modelName;
     }
-
     void setModelName(String modelName) {
         this.modelName = modelName;
     }
 
     String getResolution() {
-        if (resolution == null || resolution.isEmpty()) {
+        if (resolution == null || resolution.isEmpty()) { // isEmpty() : 빈칸
             return "판매자에게 문의하세요.";
         }
         return resolution;
@@ -101,8 +107,8 @@ public class BlackBox {
     }
 
     int getPrice() {
-        return price;// 이 코드에서는 매개변수가 설덩되어 있지 읺기 때문에 price값은 자동적으로 인스턴스 변수값이 된다.
-    }
+        return price;
+    } // 이 코드에서는 매개변수가 설정되어 있지 읺기 때문에 price값은 자동적으로 인스턴스 변수값이 된다.
 
     void setPrice(int price) {
         if (price < 100000) {
