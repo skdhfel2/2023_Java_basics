@@ -29,7 +29,7 @@ public class _05_Stream {
 
         langList = Arrays.asList("python", "java", "javascript", "c", "c++", "c#"); // List를 Arrays(배열)로 변경
         // System.out.println(langList.size());
-        Stream<String> langListStream = langList.stream();
+        Stream<String> langListStream = langList.stream(); // "langList"의 목록을 문자열 스트림인 "langListStream"으로 변형시킨다.
 
         // Stream.of()
         Stream<String> langListOfStream = Stream.of("python", "java", "javascript", "c", "c++", "c#");
@@ -40,12 +40,14 @@ public class _05_Stream {
         // 최종 연산 (Terminal Operation) : count, min, max, sum, forEach, anyMatch, allMatch, ...
 
         // 90 점 이상인 점수만 출력
-        Arrays.stream(scores).filter(x -> x >= 90).forEach(x -> System.out.println(x));
-        // Arrays.stream(scores).filter(x -> x >= 90).forEach(System.out::println);
+        Arrays.stream(scores).filter(x -> x >= 90).forEach(x -> System.out.println(x)); // x에 90이상 값들을 집어넣게 된다.
+        // forEach는 지정된 동작을 수행하느 메서드다
+        // Arrays.stream(scores).filter(x -> x >= 90).forEach(System.out::println); // 앞에서 넘어오는 데이터를 불러오게 되서 위에 코드랑 똑같은 결과값이 출력 된다.
         System.out.println("----------------------------");
 
         // 90 점 이상인 사람의 수
-        int count = (int) Arrays.stream(scores).filter(x -> x >= 90).count();
+        int count = (int) Arrays.stream(scores).filter(x -> x >= 90).count(); // count는 개수가 몇개인지 세준다.
+        // count에 마우스를 올려보면 long 타입 메서드인걸 알수가 있다. 그래서 데이터가 작으면 int 형으로 변형 시킬수 있다.
         System.out.println(count);
         System.out.println("----------------------------");
 
@@ -79,13 +81,16 @@ public class _05_Stream {
         System.out.println("----------------------------");
 
         // 4글자 이하의 언어 중에서 c 라는 글자를 포함하는 언어가 하나라도 있는지 여부
+        // anyMach : 글자 하나라도 포함되면 True
         boolean anyMatch = langList.stream()
                 .filter(x -> x.length() <= 4)
                 .anyMatch(x -> x.contains("c"));
-        System.out.println(anyMatch);
+        System.out.println(anyMatch); // anyMach 마우스 갖다대면 boolean 타입 사용하라고 나와있음
         System.out.println("----------------------------");
 
         // 3글자 이하의 언어들은 모두 c 라는 글자를 포함하는지 여부
+        // allMach : 어떤 글자를 모두 포함하면 True
+
         boolean allMatch = langList.stream()
                 .filter(x -> x.length() <= 3)
                 .allMatch(x -> x.contains("c"));
@@ -104,7 +109,7 @@ public class _05_Stream {
         // c 라는 글자를 포함하는 언어를 대문자로 출력
         langList.stream()
                 .filter(x -> x.contains("c"))
-                .map(String::toUpperCase)
+                .map(String::toUpperCase) // ::는 메서드 레퍼런스다, 메서드 레퍼런스는 스트림의 각 요소(x변수)를 메서드에 전달하는 역할을 한다.
                 .forEach(System.out::println);
         System.out.println("----------------------------");
 
@@ -112,7 +117,7 @@ public class _05_Stream {
         List<String> langListStartsWithC = langList.stream()
                 .filter(x -> x.contains("c"))
                 .map(String::toUpperCase)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()); // collect 메서드를 통해 목록들이 "Collectors.toList()"로 인해 리스트로 변형됨
 
         langListStartsWithC.stream().forEach(System.out::println);
     }
