@@ -37,9 +37,9 @@ public class _07_DeleteFile {
     // A.delete() 삭제
 
     public static boolean deleteFolder(File folder) { // "folder"라는 "File"객체를 만든다.
-        if (folder.isDirectory()) { // "folder"에 경로가 있다면
+        if (folder.isDirectory()) { // "folder"에 경로가 있다면 True 반환
             for (File file : folder.listFiles()) { // "file"이라는 "File"객체에 "listFiles"라는 메소드를 통해서 "folder"안에 존재하는 파일들을 하나씩 전달한다.
-                deleteFolder(file);
+                deleteFolder(file); // 재귀적으로 "file"객체의 파일들을 하나씩 삭제한다.
             }
         }
         System.out.println("삭제 대상 : " + folder.getAbsolutePath());
