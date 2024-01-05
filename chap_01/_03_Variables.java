@@ -17,13 +17,13 @@ public class _03_Variables {
         boolean pass = true;
         System.out.println("이번 시험에 합격했을까요? " + pass);
 
-        double d = 3.14123456789;
-        float f = 3.14123456789F;
+        double d = 3.14123456789; // double은 D 생략가능
+        float f = 3.14123456789F; // float은 F 생략 불가능
         System.out.println(d);
         System.out.println(f);
 
         long l = 1000000000000L;
-        l = 1_000_000_000_000L;
+        l = 1_000_000_000_000L; // long은 L생략 불가능
         System.out.println(l);
     }
 }
