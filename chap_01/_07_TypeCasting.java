@@ -33,8 +33,8 @@ public class _07_TypeCasting {
         // double -> float -> long -> int (수동 형변환)
 
         // 숫자를 문자열로
-        String s1 = String.valueOf(93);
-        s1 = Integer.toString(93);
+        String s1 = String.valueOf(93); // 93을 문자열로 변환
+        s1 = Integer.toString(93); // 93을 문자열로 변환
         System.out.println(s1); // 93
 
         String s2 = String.valueOf(98.8);
@@ -42,11 +42,11 @@ public class _07_TypeCasting {
         System.out.println(s2); // 98.8
 
         // 문자열을 숫자로
-        int i = Integer.parseInt("93");
+        int i = Integer.parseInt("93"); // 93을 정수로 변환
         System.out.println(i); // 93
-        double d = Double.parseDouble("98.8");
+        double d = Double.parseDouble("98.8"); // 98.8을 소수로 변환
         System.out.println(d); // 98.8
 
-        int error = Integer.parseInt("자바");
+        int error = Integer.parseInt("자바"); // "자바"는 정수로 변환 불가능 -> 오류 발생
     }
 }
