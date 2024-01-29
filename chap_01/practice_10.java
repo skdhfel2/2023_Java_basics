@@ -11,29 +11,50 @@ public class practice_10 {
         int strength = checkPasswordStrength(pw);
         System.out.println("보안 강도 : " + strength);
     }
-    public static int checkPasswordStrength(String pw){
-        boolean length = false;
+
+    public static int checkPasswordStrength(String pw) {
+        int length = pw.length();
         boolean upperCase = false;
         boolean lowerCase = false;
-        boolean number = false;
-        boolean  specialCharacter = false;
+        boolean digit = false;
+        boolean specialChar = false;
 
-        for(char pass : pw.toCharArray()){
-            if (Character.isUpperCase(pass)){
+        for (char pass : pw.toCharArray()) {
+            if (Character.isUpperCase(pass)) {
                 upperCase = true;
-            }if (Character.isLowerCase(pass)){
+            } else if (Character.isLowerCase(pass)) {
                 lowerCase = true;
-            }if (Character.isUpperCase(pass)){
-                upperCase = true;
-            }if (Character.isUpperCase(pass)){
-                upperCase = true;
+            } else if (Character.isDigit(pass)) {
+                digit = true;
+            } else if (isSpecialChar(pass)) {
+                specialChar = true;
             }
+        }
 
-
+            int strength = 0;
+            if (length >= 8) {
+                strength++;
+            }
+            if (upperCase) {
+                strength++;
+            }
+            if (lowerCase) {
+                strength++;
+            }
+            if (digit) {
+                strength++;
+            }
+            if (specialChar) {
+                strength++;
+            }
+            return strength;
 
         }
 
 
-        return 0;
+
+        public static boolean isSpecialChar(char pass){
+            String specialChars = "!@#$%^&*()-=_+[]{}|;':\",.<>?/";
+            return specialChars.contains(String.valueOf(pass));
+        }
     }
-}
