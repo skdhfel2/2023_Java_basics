@@ -5,7 +5,7 @@ import chap_08.reporter.Reportable;
 
 public class FactoryCam extends Camera implements Detectable, Reportable {
     private Detectable detector; // Alt + inset => Geter & Setter 선택가능
-    private Reportable reporter;
+    private Reportable reporter; //  reporter는 인터페이스 변수다.
 
     public void setDetector(Detectable detector) {
         this.detector = detector;
