@@ -22,9 +22,9 @@ public class _08_Iterator {
         }
         System.out.println("------------------------");
 
-        Iterator<String> it = list.iterator();
+        Iterator<String> it = list.iterator(); // Iterator를 사용하여 list의 요소를 순회합니다.
         // list.iterator(); -> 반환형을 가진 메소드에 마우스를 올리고 "Ctrl + Alt + V"를 누르면 위에 코드처럼 자동완성이 된다.
-        System.out.println(it.next());
+        System.out.println(it.next()); // Iterator를 사용시 next로 출력 가능하다.
         System.out.println(it.next());
         System.out.println(it.next());
         System.out.println(it.next());
@@ -78,6 +78,7 @@ public class _08_Iterator {
 
         Iterator<Map.Entry<String, Integer>> itMap = map.entrySet().iterator(); // map.entrySet.iterator() 입력 후 -> ctrl + Alt + V
         // "Iterator"를 참조한 "map.entrySet().iterator()"에서 "Map.Entry<String, Integer>" 타입인 "itMap" 객체를 만든다.
+        // Map.Entry -> 키,값 쌍을 같이 나타낼때 사용
         while (itMap.hasNext()) {
             System.out.println(itMap.next());
         }
