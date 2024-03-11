@@ -7,9 +7,9 @@ public class _04_FunctionalInterface {
         KRWConverter converter = new KRWConverter();
         // converter.convert(2);
 
-//        convertUSD((USD) -> System.out.println(USD + " 달러 = " + (USD * 1400) + " 원"), 1); // convertUSD(public void convert(int USD) {System.out.println(USD + " 달러 = " + (USD * 1400) + " 원");, int USD)
-
-        Convertible convertible = (USD) -> System.out.println(USD + " 달러 = " + (USD * 1400) + " 원");
+//      convertUSD((USD) -> System.out.println(USD + " 달러 = " + (USD * 1400) + " 원"), 1); // convertUSD(public void convert(int USD) {System.out.println(USD + " 달러 = " + (USD * 1400) + " 원");, int USD)
+//      함수형 인터페이스(FunctionalInterface)에서 메서드(convert)룰 사용하려면 람다식을 사용해야함.
+        Convertible convertible = (USD) -> System.out.println(USD + " 달러 = " + (USD * 1400) + " 원"); // convertible 변수에 USD 매개변수를 이용한 코드를 넣는다
 
         convertUSD(convertible, 2);
 
