@@ -1,33 +1,40 @@
 package chap_04;
 
-// 주차요금은 시간당 4000 원 (일일 최대 요금은 30000 원)
-// 경차 또는 장애인 차량은 최종 요금에서 50% 할인
+import java.util.Objects;
+import java.util.Scanner;
 
-// 일반 차량 5시간 주차 시 20000 원
-// 경차 5시간 주차 시 10000 원
-// 장애인 차량 10시간 주차 시 15000 원
-
-// 실행결과 : 주차 요금은 xx 원입니다.
-
-public class _Quiz_04 {
+public class Practice_remind {
     public static void main(String[] args) {
-        int hour = 10; // 주차 시간
-        boolean isSmallCar = false; // 경차 여부
-        boolean withDisabledPerson = true; // 장애인 차량 여부
 
-        int fee = hour * 4000; // 주차 정산 요금 (시간당 4000 원 곱하기)
+        // 일반 차량 5시간 주차 시 20000 원 ( 1시간에 4000원)
+        // 경차 5시간 주차 시 10000 원 ( 1시간에 2000원)
+        // 장애인 차량 10시간 주차 시 15000 원 ( 1시간에 1500원)
 
-        // 30000 원 초과 시 일일 최대 요금으로 수정
-        if (fee > 30000) {
-            fee = 30000; // 일일 최대 요금 적용
+        // 실행결과 : 주차 요금은 xx 원입니다.
+
+        String generalVehicle = "일반차량";
+        String smallCar = "경차";
+        String disabledPerson = "장애인 차량";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("일반차량/경차/장애인차량 이중 어디에 해당되시나요? : ");
+        String category = scanner.nextLine();
+        System.out.print("몇 시간 주차하실 예정이신가요? : ");
+        int hour = scanner.nextInt();
+
+        int fee = 0;
+        if (Objects.equals(category, generalVehicle)){
+            fee = hour * 4000;
+        } else if (Objects.equals(category, smallCar)) {
+            fee = hour * 2000;
+        } else if (Objects.equals(category, disabledPerson)) {
+            fee = hour * 1500;
+        } else {
+            System.out.println("다시 입력해주세요!");
+            return;
         }
-
-        // 경차 또는 장애인 차량인 경우 50% 할인
-        if (isSmallCar || withDisabledPerson) {
-            fee /= 2; // 50% 할인 적용
-        }
-
-        // 실행 결과 출력
-        System.out.println("주차 요금은 " + fee + " 원입니다.");
+        System.out.println("--------------주차요금 정보--------------");
+        System.out.println("차량 유형: " + category);
+        System.out.println("주차 시간 : " + hour + "시간");
+        System.out.println("주차 요금 : " + fee + "원");
     }
 }
